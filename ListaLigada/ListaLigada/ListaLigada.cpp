@@ -145,7 +145,7 @@ void inserirElemento()
 void excluirElemento()
 {int numero;
 
-	cout << "Digite o elemento a ser excluido: \n";
+	cout << "Digite o elemento que deseja excluir: \n";
 	cin >> numero;
 
 	NO* auxExclusao = posicaoElemento(numero);
@@ -177,10 +177,10 @@ void buscarElemento()
 	NO* encontrado = posicaoElemento(numero);
 	
 	if (numero != NULL) {
-		cout << "O elemento digitado esta na posicao: " << encontrado << endl;
+		cout << "O elemento digitado está na posição: " << encontrado << endl;
 	}
 	else {
-		cout << "Elemento nao encontrado! \n";
+		cout << "Elemento não encontrado. \n";
 	}
 	
 }

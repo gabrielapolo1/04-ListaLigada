@@ -73,7 +73,7 @@ void menu()
 void inicializar()
 {
 
-	// se a lista já possuir elementos
+	// se a lista jÃ¡ possuir elementos
 	// libera a memoria ocupada
 	NO* aux = primeiro;
 	while (aux != NULL) {
@@ -117,7 +117,6 @@ void exibirElementos()
 
 void inserirElemento()
 {
-	// aloca memoria dinamicamente para o novo elemento
 	NO* novo = (NO*)malloc(sizeof(NO));
 	if (novo == NULL)
 	{
@@ -134,7 +133,7 @@ void inserirElemento()
 	}
 	else
 	{
-		// procura o final da lista
+		
 		NO* aux = primeiro;
 		while (aux->prox != NULL) {
 			aux = aux->prox;
@@ -144,19 +143,52 @@ void inserirElemento()
 }
 
 void excluirElemento()
-{
+{int numero;
+
+	cout << "Digite o elemento a ser excluido: \n";
+	cin >> numero;
+
+	NO* auxExclusao = posicaoElemento(numero);
+
+	if (auxExclusao != NULL) {
+		NO* aux = primeiro; 
+		NO* paraExcluir = NULL; 
+
+		if (aux->valor == numero) {
+			paraExcluir = primeiro; 
+			primeiro = aux->prox;
+			free(paraExcluir);
+		}
+		else if (aux->prox != NULL) { 
+		while (aux->prox->valor == numero) { 
+			paraExcluir = aux->prox; 
+			primeiro->prox = paraExcluir->prox; 
+			free(paraExcluir);
+			break;
 	
 }
 
 void buscarElemento()
-{
+{int numero;
+
+	cout << "Digite o elemento que deseja buscar: \n";
+	cin >> numero;
+
+	NO* encontrado = posicaoElemento(numero);
+	
+	if (numero != NULL) {
+		cout << "O elemento digitado esta na posicao: " << encontrado << endl;
+	}
+	else {
+		cout << "Elemento nao encontrado! \n";
+	}
 	
 }
 
 
 
 // retorna um ponteiro para o elemento buscado
-// ou NULL se o elemento não estiver na lista
+// ou NULL se o elemento nÃ£o estiver na lista
 NO* posicaoElemento(int numero)
 {
 	NO* aux = primeiro;
